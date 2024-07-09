@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Архив статей</title>
+</head>
+    <div class="header">
+        {% load static %}
+        <img src="{% static 'programminglanguages.jpeg' %}" width="200px" height="200px"/>
+    </div>
+    <div class="archive">
+        {% for post in posts %}
+        <div class="one-post">
+        <h2 class="post-title"><a href="http://127.0.01:8000/article/{{post.id}}">{{post.title}}</a></h2>
+        <div class="article-info">
+        <div class="article-author">{{ post.author.username }}</div>
+        <div class="article-created- date">{{ post.created_date }}</div>
+    </div>
+    <p class="article-text">{{ post.get_excerpt }}</p>
+    </div>
+{% endfor %}
+</body>
+</html> 
